@@ -220,7 +220,7 @@ function App() {
 
           {generatedLink && (
             <div className="generated-link">
-              <QRCodeSVG value={generatedLink} />
+              <QRCodeSVG value={generatedLink} size={200}/>
               <h2 className='link'>{generatedLink.slice(0, 19)}...</h2>
 
               <div className="container-buttons-generated">
