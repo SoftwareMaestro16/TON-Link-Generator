@@ -71,26 +71,32 @@ function App() {
       const svgBlob = new Blob([svgData], { type: 'image/svg+xml' });
       const url = URL.createObjectURL(svgBlob);
   
-      img.onload = () => {e
+      img.onload = () => {
         const margin = 5;
         canvas.width = img.width + margin * 2; // Add margin
         canvas.height = img.height + margin * 2; // Add margin
         context.fillStyle = 'white'; // Set background color to white
         context.fillRect(0, 0, canvas.width, canvas.height); // Fill the background
         context.drawImage(img, margin, margin); 
- 
+  
         canvas.toBlob((blob) => {
           const link = document.createElement('a');
           const fileExtension = format === 'jpg' ? 'jpg' : 'png';
           link.href = URL.createObjectURL(blob);
-          link.download = `qr_code.${fileExtension}`; 
+          link.download = `qr_code.${fileExtension}`;
+  
+          // Trigger the download
           link.click();
+  
+          // Display a message that the file has been downloaded
+          alert('QR code image has been saved successfully!');
         }, format === 'jpg' ? 'image/jpeg' : 'image/png');
       };
   
       img.src = url;
     }
   };
+  
 
   useEffect(() => {
     const isTgCheck = Boolean(window.Telegram?.WebApp?.initData);
