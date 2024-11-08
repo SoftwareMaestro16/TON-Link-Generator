@@ -171,7 +171,3 @@ input[type="text"], input[type="number"] {
   cursor: pointer;
   color: black;
 }
-
-.tg-container {
-  overflow-x: hidden;
-}

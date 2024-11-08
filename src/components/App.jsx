@@ -73,23 +73,24 @@ function App() {
   
       img.onload = () => {
         const margin = 5;
-        canvas.width = img.width + margin * 2; // Add margin
-        canvas.height = img.height + margin * 2; // Add margin
-        context.fillStyle = 'white'; // Set background color to white
-        context.fillRect(0, 0, canvas.width, canvas.height); // Fill the background
-        context.drawImage(img, margin, margin); 
+        canvas.width = img.width + margin * 2;
+        canvas.height = img.height + margin * 2;
+        context.fillStyle = 'white';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(img, margin, margin);
   
         canvas.toBlob((blob) => {
           const link = document.createElement('a');
-          const fileExtension = format === 'jpg' ? 'jpg' : 'png';
           link.href = URL.createObjectURL(blob);
+          const fileExtension = format === 'jpg' ? 'jpg' : 'png';
           link.download = `qr_code.${fileExtension}`;
-  
-          // Trigger the download
+          
+          // Ensuring the download happens without switching tabs
+          link.style.display = 'none';
+          document.body.appendChild(link);
           link.click();
-  
-          // Display a message that the file has been downloaded
-          alert('QR code image has been saved successfully!');
+          document.body.removeChild(link);  // Clean up
+          alert("QR code saved successfully!");
         }, format === 'jpg' ? 'image/jpeg' : 'image/png');
       };
   
@@ -107,6 +108,7 @@ function App() {
       window.Telegram.WebApp.headerColor = "#303030";
       document.body.style.backgroundColor = 'var(--tg-theme-bg-color)';
       document.body.style.setProperty('background-color', '#ffffff', 'important');
+      document.body.style.overflowX = 'hidden';
     } else {
       console.warn('Приложение не открыто в Telegram');
     }
