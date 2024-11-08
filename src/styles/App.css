@@ -1,0 +1,171 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@font-face {
+  font-family: 'SF Pro Display Black Italic';
+  src: url('../fonts/SFPRODISPLAYBLACKITALIC.OTF') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display Bold';
+  src: url('../fonts/SFPRODISPLAYBOLD.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display Heavy Italic';
+  src: url('../fonts/SFPRODISPLAYHEAVYITALIC.OTF') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display Light Italic';
+  src: url('../fonts/SFPRODISPLAYLIGHTITALIC.OTF') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display Medium';
+  src: url('../fonts/SFPRODISPLAYMEDIUM.OTF') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display Regular';
+  src: url('../fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display Semibold Italic';
+  src: url('../fonts/SFPRODISPLAYSEMIBOLDITALIC.OTF') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display Thin Italic';
+  src: url('../fonts/SFPRODISPLAYTHINITALIC.OTF') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display Ultralight Italic';
+  src: url('../fonts/SFPRODISPLAYULTRALIGHTITALIC.OTF') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+.main-text {
+  font-family: 'SF Pro Display Regular';
+  font-size: 32px;
+  position: relative;
+  bottom: 38px;
+}
+
+.container-buttons {
+  display: flex;
+  gap: 20px; 
+  position: relative;
+  top: -36px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-buttons button {
+  font-family: 'SF Pro Display Regular';
+  font-size: 18px;
+  width: 125px;
+  height: 30px;
+  border-radius: 10px;
+  transition: transform 0.2s, opacity 0.2s;
+  cursor: pointer;
+}
+
+.container-buttons .active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+.form-toncoin {
+  position: relative;
+  bottom: 40px;
+  font-family: 'SF Pro Display Regular';
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.address-container-toncoin, .amount-container-toncoin, .text-container-toncoin {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: -16px;
+}
+
+input[type="text"], input[type="number"] {
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #242424;
+  border-radius: 11px;
+}
+
+.form-toncoin h2 {
+  margin-bottom: 4px;
+}
+
+.form-jetton {
+  position: relative;
+  bottom: 40px;
+  font-family: 'SF Pro Display Regular';
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.address-container-jetton, .amount-container-jetton, .jetton-address-container, .decimals-container, .text-container-jetton {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: -16px;
+}
+
+.form-jetton h2 {
+  margin-bottom: 4px;
+}
+
+.link {
+  font-family: 'SF Pro Display Regular';
+  font-size: 15px;
+}
+
+.container-buttons-generated {
+  display: flex;
+  gap: 20px; 
+  justify-content: center;
+  align-items: center;
+}
+
+.container-buttons-generated button {
+  font-family: 'SF Pro Display Regular';
+  font-size: 18px;
+  width: 125px;
+  height: 30px;
+  border-radius: 10px;
+  transition: transform 0.2s, opacity 0.2s;
+  cursor: pointer;
+}
