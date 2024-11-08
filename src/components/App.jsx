@@ -79,19 +79,19 @@ function App() {
         context.fillRect(0, 0, canvas.width, canvas.height);
         context.drawImage(img, margin, margin);
   
-        canvas.toBlob((blob) => {
-          const link = document.createElement('a');
-          link.href = URL.createObjectURL(blob);
-          const fileExtension = format === 'jpg' ? 'jpg' : 'png';
-          link.download = `qr_code.${fileExtension}`;
-          
-          // Ensuring the download happens without switching tabs
-          link.style.display = 'none';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);  // Clean up
-          alert("QR code saved successfully!");
-        }, format === 'jpg' ? 'image/jpeg' : 'image/png');
+        // Create the data URL from canvas
+        const imageUrl = canvas.toDataURL(format === 'jpg' ? 'image/jpeg' : 'image/png');
+        
+        // Create a temporary <a> element
+        const link = document.createElement('a');
+        link.href = imageUrl;
+        link.download = `qr-code.${format}`; // Set the file name with the selected format
+  
+        // Trigger the download
+        link.click();
+  
+        // Optionally show a success message
+        alert("QR code saved successfully!");
       };
   
       img.src = url;
