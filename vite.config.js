@@ -48,9 +48,20 @@ import {nodePolyfills} from "vite-plugin-node-polyfills";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-      react(),
+    react(),
     nodePolyfills({
-      include: ['buffer']
-    })
-  ]
-})
+      include: ['buffer'],
+    }),
+  ],
+  build: {
+    rollupOptions: {
+      external: ['@twa-dev/sdk'],  // Externalize the Telegram SDK module
+    },
+  },
+  resolve: {
+    alias: {
+      // Provide an alias to help Vite resolve SDK (if needed)
+      '@twa-dev/sdk': '/path/to/your/sdk', // Update with the correct path if it's custom or from node_modules
+    },
+  },
+});
